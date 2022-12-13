@@ -1,29 +1,28 @@
-﻿Skip to content
-
 #include <iostream>
 
 using namespace std;
 
-double my_pow(double num, unsigned int deg)
+double my_pow(double num, int deg)
 {
-	if (deg == 0)
-		return 1;
-	else if (deg == 1)
-		return num;
-	else if (deg % 2 == 0)
-		return my_pow(num * num, deg / 2);
-	else
-		return my_pow(num * num, deg / 2) * num;
+	double temp = num;
+	for (int i = 1; i < abs(deg); i++)
+	{
+		num = num * temp;
+	}
+	if (deg < 0)
+	{
+		num = 1 / num;
+	}
+	return num;
 }
 
 int main()
 {
 	double num;
-	unsigned int deg;
+	int deg;
 	cout << "Enter number: ";
-	cin >> num; cout << "Enter degree: ";
+	cin >> num;cout << "Enter degree: ";
 	cin >> deg;
 	num = my_pow(num, deg);
 	cout << "Result: " << num;
 }
-
