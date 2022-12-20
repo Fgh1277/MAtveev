@@ -5,6 +5,12 @@ using namespace std;
 double my_pow(double num, int deg)
 {
 	double temp = num;
+
+	for (int i = 1; i < deg; i++)
+	{
+		num = num * temp;
+	}
+
 	for (int i = 1; i < abs(deg); i++)
 	{
 		num = num * temp;
@@ -13,6 +19,7 @@ double my_pow(double num, int deg)
 	{
 		num = 1 / num;
 	}
+
 	return num;
 }
 
